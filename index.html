@@ -34,8 +34,8 @@
 			}
 
 			.star {
-				width: 2px;
-				height: 2px;
+				width: 20px;
+				height: 20px;
 				background: #f7f7b8;
 				position: fixed;
 				top: 0px;
@@ -52,13 +52,22 @@
 		</div>
 
 		<script>
+			function method2(){
+						var color="#";
+						for(var i=0;i<6;i++){
+							color += (Math.random()*16 | 0).toString(16);
+						}
+						return color;
+					}
 			(function() {
-				let starsCount = 800; //星星数量
+				let starsCount = 1500; //星星数量
 				let distance = 800; //间距
 				let parentStarts = document.getElementById("stars");
 				for (let i = 0; i < starsCount; i++) {
 					let childStart = document.createElement("div");
 					childStart.setAttribute("class", 'star');
+					childStart.style.backgroundColor=method2()
+					childStart.innerHTML="苟均杰流弊"
 					parentStarts.appendChild(childStart);
 				}
 				for (let i = 0; i < starsCount; i++) {
