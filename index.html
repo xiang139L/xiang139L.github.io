@@ -28,19 +28,23 @@
 				perspective-origin: 50% 100%;
 				/* -webkit-perspective-origin-x: 50%; */
 				left: 50%;
-				animation: rotate 66s infinite linear;
+				animation: rotate 40s infinite linear;
 				bottom: 0;
-				z-index: -99;
 			}
 
 			.star {
-				width: 20px;
-				
+				width: 4px;
+				height: 4px;
 				background: #f7f7b8;
 				position: fixed;
 				top: 0px;
 				left: 0;
 				backface-visibility: hidden;
+				transition: all 2s; 
+			}
+			.bigger{
+				width: 200px;
+				font-size: 40px;
 			}
 		</style>
 	</head>
@@ -60,15 +64,16 @@
 						return color;
 					}
 			(function() {
-				let starsCount = 1500; //星星数量
+				let starsCount = 1000; //星星数量
 				let distance = 800; //间距
 				let parentStarts = document.getElementById("stars");
 				for (let i = 0; i < starsCount; i++) {
 					let childStart = document.createElement("div");
 					childStart.setAttribute("class", 'star');
 					childStart.style.backgroundColor=method2()
-					childStart.innerHTML="苟均杰流弊"
+					childStart.style.zIndex=99999
 					parentStarts.appendChild(childStart);
+					
 				}
 				for (let i = 0; i < starsCount; i++) {
 					let item = parentStarts.children[i];
@@ -80,7 +85,12 @@
 				}
 			})();
 
-			
+			let allstar=document.querySelectorAll(".star")
+			allstar.forEach((item,index)=>{
+				item.addEventListener("click",function(){
+					this.setAttribute("class", 'bigger');
+				})
+			})
 		</script>
 	</body>
 
